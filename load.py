@@ -62,4 +62,4 @@ def generate_response():
     return jsonify({"response": generated_text, "load_time": load_time, "gen_time": gen_time})
 
 if __name__ == "__main__":
-    app.run()
+   app.run(host='0.0.0.0', port=5000)

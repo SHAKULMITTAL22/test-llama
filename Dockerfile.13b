@@ -2,4 +2,4 @@ FROM zbio/llama2:base
 
 COPY load.py ./
 
-CMD ["python", "load.py"]
+CMD ["python3", "load.py"]

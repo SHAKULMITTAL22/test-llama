@@ -1,17 +1,11 @@
+#!/bin/bash
 
+git clone https://github.com/SHAKULMITTAL22/test-llama
 
-git lfs install
+cd test-llama
 
-git clone https://huggingface.co/meta-llama/Llama-2-13b-chat-hf
+bash pre-req.sh
 
-mkdir meta-llama
+bash make-13b.sh
 
-mv Llama-2-13b-chat-hf meta-llama/
-
-git clone https://github.com/soulteary/docker-llama2-chat.git
-
-cd docker-llama2-chat
-
-bash scripts/make-13b.sh
-
-bash scripts/run-13b.sh
+sudo docker run -e HUGGINGFACE_TOKEN=$HUGGINGFACE_TOKEN --gpus all --network host  --rm -it -p 5000:5000 zbio/llama2:13b
